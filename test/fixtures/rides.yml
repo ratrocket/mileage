@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  miles: 1.5
+  kilometers: 1.5
+  description: MyText
+  bike_id: 1
+  date: 2011-06-08
+
+two:
+  miles: 1.5
+  kilometers: 1.5
+  description: MyText
+  bike_id: 1
+  date: 2011-06-08
