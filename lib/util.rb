@@ -8,11 +8,13 @@ module Util
   def self.slugify(str)
     ret = Util.to_ascii(str).downcase
     ret.gsub!(/(\s\&\s)|(\s\&amp\;\s)/, ' and ') # convert & to "and"
-    ret.gsub!(/\'/, '')   #replace non-chars
-    ret.gsub!(/\W/, ' ')  #replace non-chars
-    ret.gsub!(/\ +/, '_') #replace spaces
-    ret.gsub!(/(_)$/, '') #trailing underscores
-    ret.gsub!(/^(_)/, '') #leading underscores
+    ret.gsub!(/\'/, '')   # replace non-chars
+    ret.gsub!(/\W/, ' ')  # replace non-chars
+    ret.gsub!(/\ +/, '_') # replace spaces
+    ret.gsub!(/(_)$/, '') # trailing underscores
+    ret.gsub!(/^(_)/, '') # leading underscores
+    # make "Kogswell P/R" => "kogswell_pr"
+    ret.gsub!(/_([a-z])_([a-z])_?$/, '_\1\2')
     ret
   end
 end

@@ -7,8 +7,6 @@ class AddBikes < ActiveRecord::Migration
 
     Bike.reset_column_information
 
-    notes = "Fork is 'mid-trail' in the sense that it's the middle trail offering that Kogswell had.  It's a low trail fork.  I have a photograph of the steerer tube with the offset inscribed on it.  I think it puts the trail around 40mm."
-
     kogswell = {
       :name => "Kogswell P/R",
       :frame => "Kogswell P/R, G3",
@@ -44,15 +42,19 @@ class AddBikes < ActiveRecord::Migration
       :rear_lights => "B&M Seculite Plus and PDW Radbot 1000",
       :bottle_cages => "King steel",
       :luggage => "Acorn Boxy Rando bag",
-      :notes => notes,
       :version => 1,
       :wheelbuilder => "Handspun (QBP wheel manufacturer?)",
-      :slug => slugify("Kogswell P/R"),
+      :slug => Util.slugify("Kogswell P/R"),
       :misc => "Seat collar: Surly steel (from Aaron)"
     }
 
+    Bike.create(kogswell)
   end
 
   def self.down
+    remove_column(:bikes, :wheelbuilder)
+    remove_column(:bikes, :slug)
+    remove_column(:bikes, :misc)
+    add_column(:bikes, :notes, :text)
   end
 end
