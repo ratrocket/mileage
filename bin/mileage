@@ -1,3 +1,89 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/../config/environment'
+require 'optparse'
+
+# usage:
+# mileage [options] -m <miles>|-k <km> -c <comment> -b <bike> -d <date>
+#
+# <date> defaults to today's date
+# <bike> defaults to "default" bike
+#
+# options: --km: "miles" in kilometers
+#
+# shortcut usage:
+# mileage <defined-route>, e.g., "mileage commute"
+#
+# has a set mileage, desc, default bike and today's date
+#
+# TODO: - deal with creating notes for rides.
+#       - I'd like to do it all without command line switches (just
+#         positional)
+
+# set defaults if nec.
+date = Date.today
+miles = km = comment = bike = nil
+
+opts = OptionParser.new
+opts.on("-m", "--miles",
+        "enter EITHER miles or kms", Float) {|val| miles = val}
+opts.on("-k", "--km",
+        "enter EITHER kms or miles", Float) {|val| km = val}
+opts.on("-c", "--comment",
+        "short description of the ride", String) {|val| comment = val}
+opts.on("-b", "--bike",
+        "use nickname or slug", String) {|val| bike = val}
+opts.on("-d", "--date",
+        "mm/dd/yy or use '-' or 4 digit year", String) {|val| date = val}
+
+opts.parse(*ARGV)
+
+unless (miles || km) && comment && bike
+  puts opts.to_s
+  exit 1
+end
+
+
+__END__
+
+slug    = nil
+do_work = false
+
+opts = OptionParser.new
+opts.on("-s", "--slug RELEASE SLUG", String) {|val| slug    = val}
+opts.on("-w", "--do-work")                   {do_work = true}
+
+opts.parse(*ARGV)
+
+unless slug
+  puts opts.to_s
+  exit 1
+end
+
+puts "slug: #{slug}"  # DEBUG
+
+o_all = Order.find(:all).select {|o| o.created_at > Time.now.months_ago(2)}
+
+orders = o_all.select {|o| o.items.map {|i| i.product.release.slug}.include?(slug)}
+playlist = Playlist.find_by_slug(slug)
+
+if do_work
+  orders.each do |o|
+    o.user.playlists << playlist unless o.user.playlists.include?(playlist)
+  end
+
+  # write emails to file
+  emails = File.new("preorder.emails", "w")
+  emails.puts(orders.map {|o| o.user.email}.join(", "))
+  emails.close
+else   # don't do work, just check
+  orders.each do |o|
+    if o.user.playlists.include?(playlist)
+      # good
+    else 
+      puts "hmmm #{o.id}"
+    end
+  end
+end
+
+__END__
 

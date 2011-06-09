@@ -3,6 +3,7 @@ class CreateBikes < ActiveRecord::Migration
     create_table :bikes do |t|
       t.string :name
       t.string :slug
+      t.string :nickname
       t.string :frame
       t.string :fork
       t.string :handlebars

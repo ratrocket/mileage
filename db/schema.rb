@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110609012718) do
   create_table "bikes", :force => true do |t|
     t.string   "name"
     t.string   "slug"
+    t.string   "nickname"
     t.string   "frame"
     t.string   "fork"
     t.string   "handlebars"
