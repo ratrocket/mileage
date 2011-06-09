@@ -1,12 +1,12 @@
-module ApplicationHelper
-  def to_ascii(s)
+module Util
+  def self.to_ascii(s)
     require 'unicode'
     # http://www.jroller.com/obie/entry/fix_that_tranny_add_to
     Unicode.normalize_KD(s).unpack('U*').select {|cp| cp < 127}.pack('U*')
   end
 
-  def slugify(str)
-    ret = to_ascii(str).downcase
+  def self.slugify(str)
+    ret = Util.to_ascii(str).downcase
     ret.gsub!(/(\s\&\s)|(\s\&amp\;\s)/, ' and ') # convert & to "and"
     ret.gsub!(/\'/, '')   #replace non-chars
     ret.gsub!(/\W/, ' ')  #replace non-chars
