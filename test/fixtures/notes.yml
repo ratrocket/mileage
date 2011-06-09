@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  note: MyText
+  bike_id: 1
+  ride_id: 1
+
+two:
+  note: MyText
+  bike_id: 1
+  ride_id: 1
