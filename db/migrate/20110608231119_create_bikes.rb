@@ -2,6 +2,7 @@ class CreateBikes < ActiveRecord::Migration
   def self.up
     create_table :bikes do |t|
       t.string :name
+      t.string :slug
       t.string :frame
       t.string :fork
       t.string :handlebars
@@ -35,7 +36,8 @@ class CreateBikes < ActiveRecord::Migration
       t.string :rear_lights
       t.string :bottle_cages
       t.string :luggage
-      t.text :notes
+      t.string :wheelbuilder
+      t.string :misc
       t.integer :version
 
       t.timestamps
