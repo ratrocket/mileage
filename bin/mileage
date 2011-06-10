@@ -24,21 +24,24 @@ date = Date.today
 miles = km = comment = bike = nil
 
 opts = OptionParser.new
-opts.on("-m", "--miles",
-        "enter EITHER miles or kms", Float) {|val| miles = val}
-opts.on("-k", "--km",
-        "enter EITHER kms or miles", Float) {|val| km = val}
-opts.on("-c", "--comment",
-        "short description of the ride", String) {|val| comment = val}
-
-opts.on("-b", "--bike", "use nickname or slug", String) do |val|
-  puts "in bike parse"
-  bike = Bike.find_by_nickname(val) || Bike.find_by_slug(val)
-  puts bike.name if bike.present?
+opts.on("-m", "--miles MILES", "enter EITHER miles or kms", Float) do |val|
+  miles = val
 end
 
-opts.on("-d", "--date", "mm/dd/yy or use '-' or 4 digit year", String) do |val|
-  puts "in date parse"
+opts.on("-k", "--km KM", "enter EITHER kms or miles", Float) do |val|
+  km = val
+end
+
+opts.on("-c", "--comment COMMENT", "short description of the ride", String) do |val|
+  comment = val
+end
+
+opts.on("-b", "--bike BIKE", "use nickname or slug", String) do |val|
+  bike = Bike.find_by_nickname(val) || Bike.find_by_slug(val)
+end
+
+opts.on("-d", "--date DATE", "mm/dd/yy or use '-' or 4 digit year", String) do |val|
+  puts "DATE #{val}"
   if val =~ /\//
     sep = '/'
   elsif val =~ /-/
@@ -50,7 +53,6 @@ opts.on("-d", "--date", "mm/dd/yy or use '-' or 4 digit year", String) do |val|
   m, d, y = val.split(sep).map(&:to_i)
   y = y + 2000 if y < 100
   date = Date.new(y, m, d)
-  puts date
 end
 
 opts.parse(*ARGV)
