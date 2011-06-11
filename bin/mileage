@@ -41,7 +41,6 @@ opts.on("-b", "--bike BIKE", "use nickname or slug", String) do |val|
 end
 
 opts.on("-d", "--date DATE", "mm/dd/yy or use '-' or 4 digit year", String) do |val|
-  puts "DATE #{val}"
   if val =~ /\//
     sep = '/'
   elsif val =~ /-/
@@ -64,9 +63,18 @@ unless (miles || km) && comment && bike
   exit 1
 end
 
-puts date
-puts bike.name
-puts comment if comment.present?
+#puts date
+#puts bike.name
+#puts comment if comment.present?
+
+Ride.create(:miles => miles,
+            :kilometers => km,
+            :description => comment,
+            :bike_id => bike.id,
+            :date => date)
+
+r = Ride.find(1)
+puts r.summary
 
 __END__
 
@@ -104,7 +112,7 @@ else   # don't do work, just check
   orders.each do |o|
     if o.user.playlists.include?(playlist)
       # good
-    else 
+    else
       puts "hmmm #{o.id}"
     end
   end
