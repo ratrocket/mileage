@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+# [date, mi, comment]
+[
+  ["4/11/11", 6, "first commute of the year!"],
+  ["4/18/11", 15, "commute, mixed (short to/long home)"],
+  ["4/19/11", 15, "commute, mixed (short to/long home)"],
+  ["4/20/11", 15, "commute, mixed (short to/long home)"],
+  ["4/21/11", 15, "commute, mixed (short to/long home)"],
+  ["4/22/11", 15, "commute, mixed (short to/long home)"],
+  ["4/23/11", 18, "to cap hill, don't recall the occasion."],
+  ["4/24/11", 37, "Easter picnic ride + Fremont GF bakery + to J/A (JB's bday!)"],
+  ["4/25/11", 16, "commute, long way both ways"],
+  ["4/26/11", 16, "commute, long way both ways"],
+  ["4/27/11", 16, "commute, long way both ways"],
+  ["4/27/11", 4, "RW Wednesday"],
+  ["4/30/11", 2, "PCC"],
+  ["5/2/11", 16, "commute, long way"],
+  ["5/3/11", 16, "commute, long way"],
+  ["5/4/11", 16, "commute, long way"],
+  ["5/5/11", 16, "commute, long way"],
+  ["5/9/11", 16, "commute, long way"],
+  ["5/10/11", 16, "commute, long way"],
+  ["5/11/11", 16, "commute, long way"],
+  ["5/11/11", 4, "RW Wednesday"],
+  ["5/12/11", 16, "commute, long way"],
+  ["5/24/11", 16, "commute, long way"],
+  ["5/26/11", 16, "commute, long way"],
+  ["5/27/11", 16, "commute, long way"],
+  ["5/27/11", 3, "lower QA after work to pay rent"],
+  ["5/28/11", 7, "megan's -> home; after dinner"],
+  ["5/29/11", 25, "Vashon Island w/ Jordan, Annie. Mileage approx."],
+  ["5/31/11", 16, "commute, long way"],
+  ["6/1/11", 16, "commute, long way"],
+  ["6/2/11", 16, "commute, long way"],
+  ["6/2/11", 12, "ride w/ Jordan, Madrona"],
+  ["6/3/11", 16, "commute, long way"],
+  ["6/5/11", 50, "Auburn with Jordan, Annie"],
+  ["6/6/11", 16, "commute, long way"],
+  ["6/7/11", 16, "commute, long way"],
+  ["6/7/11", 6, "intervals with Jordan and CRASH!"],
+].each do |dd, mm, cc|
+  cmd = "./bin/mileage -m #{mm} -d #{dd} -c \"#{cc}\" -b kogswell"
+  system(cmd)
+end
+
+__END__
+Usage: mileage [options]
+    -m, --miles MILES                enter EITHER miles or kms
+    -k, --km KM                      enter EITHER kms or miles
+    -c, --comment COMMENT            short description of the ride
+    -b, --bike BIKE                  use nickname or slug
+    -d, --date DATE                  mm/dd/yy or use '-' or 4 digit year

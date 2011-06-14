@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/environment'
+
+pr = Bike.find_by_nickname("kogswell")
+puts "rides = ["
+Ride.all.each do |ride|
+  puts "  {"
+  puts "    :miles => #{ride.miles},"
+  puts "    :description => \"#{ride.description}\","
+  puts "    :bike_id => #{pr.id},"
+  puts "    :date => \"#{ride.date.to_s}\""
+  puts "  },"
+end
+puts "]"

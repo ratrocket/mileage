@@ -63,60 +63,13 @@ unless (miles || km) && comment && bike
   exit 1
 end
 
-#puts date
-#puts bike.name
-#puts comment if comment.present?
-
 Ride.create(:miles => miles,
             :kilometers => km,
             :description => comment,
             :bike_id => bike.id,
             :date => date)
 
-r = Ride.find(1)
+r = Ride.last
 puts r.summary
 
 __END__
-
-slug    = nil
-do_work = false
-
-opts = OptionParser.new
-opts.on("-s", "--slug RELEASE SLUG", String) {|val| slug    = val}
-opts.on("-w", "--do-work")                   {do_work = true}
-
-opts.parse(*ARGV)
-
-unless slug
-  puts opts.to_s
-  exit 1
-end
-
-puts "slug: #{slug}"  # DEBUG
-
-o_all = Order.find(:all).select {|o| o.created_at > Time.now.months_ago(2)}
-
-orders = o_all.select {|o| o.items.map {|i| i.product.release.slug}.include?(slug)}
-playlist = Playlist.find_by_slug(slug)
-
-if do_work
-  orders.each do |o|
-    o.user.playlists << playlist unless o.user.playlists.include?(playlist)
-  end
-
-  # write emails to file
-  emails = File.new("preorder.emails", "w")
-  emails.puts(orders.map {|o| o.user.email}.join(", "))
-  emails.close
-else   # don't do work, just check
-  orders.each do |o|
-    if o.user.playlists.include?(playlist)
-      # good
-    else
-      puts "hmmm #{o.id}"
-    end
-  end
-end
-
-__END__
-
