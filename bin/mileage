@@ -41,17 +41,21 @@ opts.on("-b", "--bike BIKE", "use nickname or slug", String) do |val|
 end
 
 opts.on("-d", "--date DATE", "mm/dd/yy or use '-' or 4 digit year", String) do |val|
-  if val =~ /\//
-    sep = '/'
-  elsif val =~ /-/
-    sep = '-'
-  else
-    STDERR.puts "can't parse date" && exit
-  end
+  # TODO: the str2date shouldn't be in Ride
+  date = Ride.str2date(val)
+  (STDERR.puts "can't parse date" && exit) unless date
 
-  m, d, y = val.split(sep).map(&:to_i)
-  y = y + 2000 if y < 100
-  date = Date.new(y, m, d)
+  #if val =~ /\//
+  #  sep = '/'
+  #elsif val =~ /-/
+  #  sep = '-'
+  #else
+  #  STDERR.puts "can't parse date" && exit
+  #end
+
+  #m, d, y = val.split(sep).map(&:to_i)
+  #y = y + 2000 if y < 100
+  #date = Date.new(y, m, d)
 end
 
 opts.parse(*ARGV)
