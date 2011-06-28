@@ -1,0 +1,28 @@
+<% title "Ride" %>
+
+<p>
+  <strong>Miles:</strong>
+  <%= @ride.miles %>
+</p>
+<p>
+  <strong>Kilometers:</strong>
+  <%= @ride.kilometers %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @ride.description %>
+</p>
+<p>
+  <strong>Bike:</strong>
+  <%= @ride.bike.name %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @ride.date %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_ride_path(@ride) %> |
+  <%= link_to "Destroy", @ride, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", rides_path %>
+</p>

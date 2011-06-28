@@ -1,0 +1,25 @@
+<% title "Rides" %>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Miles</th>
+    <th>Kilometers</th>
+    <th>Bike</th>
+  </tr>
+  <% for ride in @rides %>
+    <tr>
+      <td><%= ride.date %></td>
+      <td><%= ride.description %></td>
+      <td><%= ride.miles %></td>
+      <td><%= ride.kilometers %></td>
+      <td><%= ride.bike.name %></td>
+      <td><%= link_to "Show", ride %></td>
+      <td><%= link_to "Edit", edit_ride_path(ride) %></td>
+      <td><%= link_to "Destroy", ride, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Ride", new_ride_path %></p>

@@ -106,7 +106,7 @@ Note.create(:note => "The front wheel is laced in a distinctive crow's foot patt
 
 rides = [
   {
-  :miles => 6.0,
+  :miles => 12.0,
   :description => "first commute of the year!",
   :bike_id => 1,
   :date => "2011-04-11"

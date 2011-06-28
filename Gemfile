@@ -8,6 +8,8 @@ gem 'rails', '3.0.8'
 gem 'sqlite3'
 gem 'unicode'
 
+gem 'nifty-generators', :group => :development
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -30,3 +32,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+#gem "mocha", :group => :test

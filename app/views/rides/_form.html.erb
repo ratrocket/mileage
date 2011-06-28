@@ -1,0 +1,24 @@
+<%= form_for @ride do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :miles %><br />
+    <%= f.text_field :miles %>
+  </p>
+  <p>
+    <%= f.label :kilometers %><br />
+    <%= f.text_field :kilometers %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :bike_id %><br />
+    <%= f.select :bike_id, Bike.all.map {|b| [b.name, b.id]} %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
