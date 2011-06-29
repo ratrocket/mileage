@@ -50,7 +50,7 @@ Mileage::Application.configure do
   # according to
   # http://collectiveidea.com/blog/archives/2010/11/29/ssl-with-rails/
   # info came from Josh Peek (the Rack::SSL guy) so...
-  config.middleware.insert_before ActionDispatch::Cookies, Rack::SSL
+#  config.middleware.insert_before ActionDispatch::Cookies, Rack::SSL
   # other suggestion was
   # http://www.simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/
   # (that one inserts Rack::SSL at the very beginning of the rack stack)
