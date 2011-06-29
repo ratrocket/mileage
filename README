@@ -3,11 +3,15 @@
 DONE:
 - convert to postgres (done?)
 - authentication (means users too...) (using nifty stuff)
-
-TODO:
-
 - ssl required on everything -- use Rack middleware:
   http://goo.gl/0U5mz (stackoverflow; not quite rails 3 I don't think...)
   http://goo.gl/C4YjM (rails guide to Rack)
+  (using Rack::SSL)
+- turn off signup before it goes to heroku (login_required for ALL
+  actions in all controllers, including  users#new!)
+
+TODO:
+
 - get it going on heroku:
   - use thin (working locally, need Procfile for heroku?)
+- TESTS

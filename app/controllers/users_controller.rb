@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create]
+  # disallow signup, period.
+  before_filter :login_required
+  # or don't
+  #before_filter :login_required, :except => [:new, :create]
 
   def new
     @user = User.new

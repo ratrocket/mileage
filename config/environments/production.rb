@@ -46,4 +46,14 @@ Mileage::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # according to
+  # http://collectiveidea.com/blog/archives/2010/11/29/ssl-with-rails/
+  # info came from Josh Peek (the Rack::SSL guy) so...
+  config.middleware.insert_before ActionDispatch::Cookies, Rack::SSL
+  # other suggestion was
+  # http://www.simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/
+  # (that one inserts Rack::SSL at the very beginning of the rack stack)
+  #
+  # Thankfully, rails 3.1 bakes in the SSL & this gets even easier.
 end

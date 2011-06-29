@@ -1,4 +1,6 @@
 class RidesController < ApplicationController
+  before_filter :login_required
+
   def index
     @rides = Ride.all
   end

@@ -330,3 +330,15 @@ rides = [
 ]
 
 Ride.create(rides)
+
+# go straight to the DB head with this one
+sql = "insert into users " +
+  "(username, email, password_hash, password_salt, created_at, updated_at) " +
+  "values " +
+  "('ratrocket', " +
+  "'stuart.fletcher@gmail.com', " +
+  "'$2a$10$/24wwgEwprhVsxvFIJxwMeSAbXgKUB4tODkdNYYdvNMSLBftJV1nq', " +
+  "'$2a$10$/24wwgEwprhVsxvFIJxwMe', " +
+  "now(), now())"
+
+ActiveRecord::Base.connection.execute(sql)
