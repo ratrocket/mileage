@@ -45,6 +45,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     nifty-generators (0.4.6)
+    pg (0.11.0)
     polyglot (0.3.1)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -90,6 +91,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   nifty-generators
+  pg
   rails (= 3.0.8)
   ruby-debug19
   sqlite3

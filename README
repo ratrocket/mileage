@@ -3,6 +3,8 @@
 TODO:
 
 - authentication (means users too...)
-- ssl required on everything (use Rack middleware:
+- ssl required on everything -- use Rack middleware:
   http://goo.gl/0U5mz (stackoverflow; not quite rails 3 I don't think...)
   http://goo.gl/C4YjM (rails guide to Rack)
+- convert to postgres
+- get it going on heroku
