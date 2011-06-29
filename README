@@ -9,9 +9,11 @@ DONE:
   (using Rack::SSL)
 - turn off signup before it goes to heroku (login_required for ALL
   actions in all controllers, including  users#new!)
+- get it going on heroku:
 
 TODO:
 
-- get it going on heroku:
-  - use thin (working locally, need Procfile for heroku?)
+- use thin (working locally, need Procfile for heroku?)
 - TESTS
+- feature: saved ride profiles/templates (for common rides: commutes,
+  etc.)
