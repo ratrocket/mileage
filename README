@@ -1,13 +1,13 @@
 == Track mileage simply.
 
 DONE:
+- convert to postgres (done?)
+- authentication (means users too...) (using nifty stuff)
 
 TODO:
 
-- authentication (means users too...)
 - ssl required on everything -- use Rack middleware:
   http://goo.gl/0U5mz (stackoverflow; not quite rails 3 I don't think...)
   http://goo.gl/C4YjM (rails guide to Rack)
 - get it going on heroku:
-  - convert to postgres (done?)
-  - use thin
+  - use thin (working locally, need Procfile for heroku?)

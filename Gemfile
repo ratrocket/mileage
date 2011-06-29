@@ -17,6 +17,8 @@ end
 # gem 'unicorn'
 gem 'thin'
 
+gem 'rack-ssl', :require => 'rack/ssl'
+
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
