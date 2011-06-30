@@ -1,24 +1,28 @@
 == Track mileage simply.
 
 DONE:
-- convert to postgres (done?)
-- authentication (means users too...) (using nifty stuff)
-- ssl required on everything -- use Rack middleware:
+* convert to postgres (done?)
+* authentication (means users too...) (using nifty stuff)
+* ssl required on everything -- use Rack middleware:
   http://goo.gl/0U5mz (stackoverflow; not quite rails 3 I don't think...)
   http://goo.gl/C4YjM (rails guide to Rack)
   (using Rack::SSL)
-- turn off signup before it goes to heroku (login_required for ALL
+* turn off signup before it goes to heroku (login_required for ALL
   actions in all controllers, including  users#new!)
-- get it going on heroku:
-- use thin (working locally, need Procfile for heroku?)
+* get it going on heroku:
+* use thin (working locally, need Procfile for heroku?)
 
 TODO:
 
-- TESTS
-- feature: saved ride profiles/templates (for common rides: commutes,
-  etc.)
-- get laptop setup to deploy to heroku:
+* TESTS
+* get laptop setup to deploy to heroku:
   http://objectliteral.blogspot.com/2011/06/heroku-multiple-machines.html (??)
   http://iamneato.com/2009/07/18/one-heroku-app-from-two-computers
   http://www.simb.net/2010/06/22/heroku-one-application-two-computers/
   (last 2 are good & essentially the same)
+* look at taps to do db backups
+  http://devcenter.heroku.com/articles/taps
+
+FEATURE TODO:
+* saved ride profiles/templates (for common rides: commutes, etc.)
+* better date picker (_any_ date picker!)
