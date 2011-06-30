@@ -22,6 +22,7 @@ TODO:
   (last 2 are good & essentially the same)
 * look at taps to do db backups
   http://devcenter.heroku.com/articles/taps
+* get timezone correct in the heroku database (for timestamps)
 
 FEATURE TODO:
 * saved ride profiles/templates (for common rides: commutes, etc.)
