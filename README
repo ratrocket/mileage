@@ -23,7 +23,11 @@ TODO:
 * get timezone correct in the heroku database (for timestamps)
 
 FEATURE TODO:
+
 * saved ride profiles/templates (for common rides: commutes, etc.)
 * better date picker (_any_ date picker!)
 * "waypoints" or something -- build up a ride from smaller segments
   (maybe, maybe not...)
+* create a Service class so I can record when the bike was serviced.
+  To do it I could introduce an Activity class and make Ride and Service
+  both subclasses of that (& use STI for the DB)
