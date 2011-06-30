@@ -25,3 +25,5 @@ TODO:
 FEATURE TODO:
 * saved ride profiles/templates (for common rides: commutes, etc.)
 * better date picker (_any_ date picker!)
+* "waypoints" or something -- build up a ride from smaller segments
+  (maybe, maybe not...)
