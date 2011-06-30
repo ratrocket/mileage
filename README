@@ -11,15 +11,13 @@ DONE:
   actions in all controllers, including  users#new!)
 * get it going on heroku:
 * use thin (working locally, need Procfile for heroku?)
+* get laptop setup to deploy to heroku:
+  http://iamneato.com/2009/07/18/one-heroku-app-from-two-computers
+  http://www.simb.net/2010/06/22/heroku-one-application-two-computers/
 
 TODO:
 
 * TESTS
-* get laptop setup to deploy to heroku:
-  http://objectliteral.blogspot.com/2011/06/heroku-multiple-machines.html (??)
-  http://iamneato.com/2009/07/18/one-heroku-app-from-two-computers
-  http://www.simb.net/2010/06/22/heroku-one-application-two-computers/
-  (last 2 are good & essentially the same)
 * look at taps to do db backups
   http://devcenter.heroku.com/articles/taps
 * get timezone correct in the heroku database (for timestamps)

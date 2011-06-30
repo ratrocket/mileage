@@ -1,5 +1,7 @@
 <% title "Rides" %>
 
+<p><%= link_to "New Ride", new_ride_path %></p>
+
 <table>
   <tr>
     <th>Date</th>
@@ -8,9 +10,9 @@
     <th>Kilometers</th>
     <th>Bike</th>
   </tr>
-  <% for ride in @rides %>
+  <% @rides.each do |ride| %>
     <tr>
-      <td><%= ride.date %></td>
+      <td><%= ride.date.to_formatted_s(:weekday_date) %></td>
       <td><%= ride.description %></td>
       <td><%= ride.miles %></td>
       <td><%= ride.kilometers %></td>
