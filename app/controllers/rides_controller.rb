@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   before_filter :login_required
 
   def index
-    @rides = Ride.all
+    @rides = Ride.all.sort_by(&:date)
   end
 
   def show
