@@ -24,4 +24,8 @@
   <% end %>
 </table>
 
+<p>
+Total mileage: <%= @rides.map(&:miles).sum %>
+</p>
+
 <p><%= link_to "New Ride", new_ride_path %></p>
