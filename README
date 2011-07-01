@@ -14,6 +14,8 @@ DONE:
 * get laptop setup to deploy to heroku:
   http://iamneato.com/2009/07/18/one-heroku-app-from-two-computers
   http://www.simb.net/2010/06/22/heroku-one-application-two-computers/
+* Have short & long descriptions in Ride (or in Activity). Short can be
+  displayed when listing, long when viewing details.
 
 TODO:
 
