@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/environment'
+
+unless Rails.env.development?
+  STDERR.puts "You aren't in development environment!"
+  exit(1)
+end
+
+DUMP = `which pg_dump`.chomp
+DATE = `which date`.chomp
+DIR = Rails.root.join('db', 'backups')
+
+Dir.mkdir(DIR) unless File.directory?(DIR)
+
+if DUMP.present? && DATE.present?
+  time_stamp = `#{DATE} +%Y%m%d%k%M`.chomp
+  `#{DUMP} -U mileage mileage_development > #{DIR}/#{time_stamp}-sync.sql`
+else
+  STDERR.puts "Either 'pg_dump' or 'date' not present. EXITING!"
+  exit(1)
+end
+
+__END__
+
+pg_dump -U mileage mileage_development > db/backups/`/bin/date +%Y%m%d%k%M`-sync.sql
