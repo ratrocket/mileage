@@ -1,12 +1,12 @@
 class RidesController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :set_user
 
   def index
-    @rides = Ride.all.sort_by(&:date)
+    @rides = @user.rides.sort_by(&:date)
   end
 
   def show
-    @ride = Ride.find(params[:id])
+    @ride = @user.rides.find(params[:id])
   end
 
   def new
@@ -23,11 +23,11 @@ class RidesController < ApplicationController
   end
 
   def edit
-    @ride = Ride.find(params[:id])
+    @ride = @user.rides.find(params[:id])
   end
 
   def update
-    @ride = Ride.find(params[:id])
+    @ride = @user.rides.find(params[:id])
     if @ride.update_attributes(params[:ride])
       redirect_to @ride, :notice  => "Successfully updated ride."
     else
@@ -36,8 +36,13 @@ class RidesController < ApplicationController
   end
 
   def destroy
-    @ride = Ride.find(params[:id])
+    @ride = @user.rides.find(params[:id])
     @ride.destroy
     redirect_to rides_url, :notice => "Successfully destroyed ride."
+  end
+
+  private
+  def set_user
+    @user ||= current_user  # dunno about the ||= ...
   end
 end

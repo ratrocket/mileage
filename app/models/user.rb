@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :bikes
+  has_many :rides
+
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation
 

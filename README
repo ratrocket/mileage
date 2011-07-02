@@ -16,6 +16,7 @@ DONE:
   http://www.simb.net/2010/06/22/heroku-one-application-two-computers/
 * Have short & long descriptions in Ride (or in Activity). Short can be
   displayed when listing, long when viewing details.
+* Make it so Users own Rides and Bikes
 
 TODO:
 
@@ -23,6 +24,8 @@ TODO:
 * look at taps to do db backups
   http://devcenter.heroku.com/articles/taps
 * get timezone correct in the heroku database (for timestamps)
+* rvm/readline on my laptop?
+  (https://rvm.beginrescueend.com/packages/readline/)
 
 FEATURE TODO:
 

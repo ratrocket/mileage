@@ -1,6 +1,7 @@
 class Ride < ActiveRecord::Base
   belongs_to :bike
   has_many :notes
+  belongs_to :user
 
   # my week goes from Sunday to Saturday...
   scope :weekly, lambda {|*args|
