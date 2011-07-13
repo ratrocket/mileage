@@ -17,12 +17,12 @@ DONE:
 * Have short & long descriptions in Ride (or in Activity). Short can be
   displayed when listing, long when viewing details.
 * Make it so Users own Rides and Bikes
+* look at taps to do db backups
+  http://devcenter.heroku.com/articles/taps
 
 TODO:
 
 * TESTS
-* look at taps to do db backups
-  http://devcenter.heroku.com/articles/taps
 * get timezone correct in the heroku database (for timestamps)
 * rvm/readline on my laptop?
   (https://rvm.beginrescueend.com/packages/readline/)
@@ -32,7 +32,10 @@ FEATURE TODO:
 * saved ride profiles/templates (for common rides: commutes, etc.)
 * better date picker (_any_ date picker!)
 * "waypoints" or something -- build up a ride from smaller segments
-  (maybe, maybe not...)
+  (maybe, maybe not...) (this could just be "draft" vs. "live" Rides;
+  build up the draft then make it live once complete)
 * create a Service class so I can record when the bike was serviced.
   To do it I could introduce an Activity class and make Ride and Service
   both subclasses of that (& use STI for the DB)
+  (Right now I'm going to enter Service as 0mi/km Rides and put
+  "SERVICE: ..." in the short description.)
