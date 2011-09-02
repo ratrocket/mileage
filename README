@@ -39,3 +39,6 @@ FEATURE TODO:
   both subclasses of that (& use STI for the DB)
   (Right now I'm going to enter Service as 0mi/km Rides and put
   "SERVICE: ..." in the short description.)
+* don't have fields for BOTH miles and km in new ride form (js switch)
+* upgrade to Rails 3.1
+  (http://guides.rubyonrails.org/3_1_release_notes.html)
