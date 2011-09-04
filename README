@@ -1,6 +1,22 @@
 == Track mileage simply.
 
+REMINDERS:
+
+deploy:
+git push heroku master
+
+migrate:
+heroku rake db:migrate
+
+get db:
+heroku db:pull
+(can back up local db prior to that with './bin/backup_db')
+
+start server:
+rails s thin -p4000
+
 DONE:
+
 * convert to postgres (done?)
 * authentication (means users too...) (using nifty stuff)
 * ssl required on everything -- use Rack middleware:
