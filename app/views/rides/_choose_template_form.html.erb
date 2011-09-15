@@ -1,0 +1,13 @@
+<%- if @templates.present? -%>
+  <%= form_tag url_for(:action => 'new') do %>
+    <p>
+      Fill in values from template:
+    </p>
+    <p>
+      <%= select_tag("template",
+        options_from_collection_for_select(@templates, 'id', 'description')) %>
+    </p>
+
+    <%= submit_tag "Fill in" %> <%# backfill? %>
+  <%- end -%>
+<%- end -%>
