@@ -2,6 +2,10 @@
 
 <p><%= link_to "New Ride", new_ride_path %></p>
 
+<%- if @ride.template -%>
+  <p><strong>THIS RIDE IS A TEMPLATE!</strong></p>
+<%- end -%>
+
 <p>
   <strong>Miles:</strong>
   <%= @ride.miles %>

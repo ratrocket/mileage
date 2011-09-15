@@ -1,5 +1,18 @@
 <%= form_for @ride do |f| %>
   <%= f.error_messages %>
+
+  <%# does this go in the form or in #new? %>
+  <%- if @templates.present? -%>
+  <p>
+    Fill in values from template:
+  </p>
+  <p>
+  <%# TODO: this needs work! %>
+    <%= select_tag("template",
+        options_from_collection_for_select(@templates, 'id', 'description')) %>
+  </p>
+  <%- end -%>
+
   <p>
     <%= f.label :miles %><br />
     <%= f.text_field :miles %>
@@ -23,6 +36,10 @@
   <p>
     <%= f.label :date %><br />
     <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :template %><br />
+    <%= f.check_box :template %>
   </p>
   <p>
     <%= f.hidden_field :user_id, {:value => @user.id} %>

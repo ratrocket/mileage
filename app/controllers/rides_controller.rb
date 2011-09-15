@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   before_filter :login_required, :set_user
 
   def index
-    @rides = @user.rides.sort_by(&:date)
+    @rides = @user.rides.reals.sort_by(&:date)
   end
 
   def show
@@ -11,6 +11,7 @@ class RidesController < ApplicationController
 
   def new
     @ride = Ride.new
+    @templates = @user.rides.templates
   end
 
   def create

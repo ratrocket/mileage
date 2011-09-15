@@ -42,3 +42,6 @@ FEATURE TODO:
 * don't have fields for BOTH miles and km in new ride form (js switch)
 * upgrade to Rails 3.1
   (http://guides.rubyonrails.org/3_1_release_notes.html)
+
+* Template is underway, finish it off.  Look in views/rides/_form for a
+  start.
