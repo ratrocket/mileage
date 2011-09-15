@@ -3,9 +3,9 @@ class Ride < ActiveRecord::Base
   has_many :notes
   belongs_to :user
 
-  #default_scope where(:template => nil)  # this seems weird
   scope :templates, where(:template => true)
-  scope :reals, where(:template => nil)
+  # can't do this OR with a where() it seems...
+  scope :reals, :conditions => ['template is null or template = false']
 
   # my week goes from Sunday to Saturday...
   scope :weekly, lambda {|*args|

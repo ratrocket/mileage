@@ -13,7 +13,7 @@ class RidesController < ApplicationController
     unless request.post?
       @ride = Ride.new
     else
-      @ride = Ride.find(params[:template])
+      @ride = Ride.find(params[:template]).dup
       @ride.template = nil
       @ride.date = Date.today
     end
