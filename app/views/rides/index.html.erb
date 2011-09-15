@@ -25,7 +25,8 @@
 </table>
 
 <p>
-Total mileage: <%= @rides.map(&:miles).sum %>
+Total mileage: <%= number_with_precision(@rides.map(&:miles).sum, :precision => 2) %>
+  (<%= number_with_precision(@rides.map(&:kilometers).sum, :precision => 2) %> km)
 </p>
 
 <p><%= link_to "New Ride", new_ride_path %></p>
