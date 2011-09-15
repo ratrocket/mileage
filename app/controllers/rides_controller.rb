@@ -14,7 +14,7 @@ class RidesController < ApplicationController
       @ride = Ride.new
     else
       @ride = Ride.find(params[:template])
-      @ride.template = false
+      @ride.template = nil
       @ride.date = Date.today
     end
     @templates = @user.rides.templates
