@@ -12,6 +12,9 @@ get db:
 heroku db:pull
 (can back up local db prior to that with './bin/backup_db')
 
+console on production:
+heroku run console
+
 start server:
 rails s thin -p4000
 
