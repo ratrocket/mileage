@@ -13,7 +13,11 @@ Mileage::Application.routes.draw do
 
   resources :users
 
-  resources :rides
+  resources :rides do
+    member do
+      post 'new'  # to start a Ride from a template
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

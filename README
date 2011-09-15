@@ -15,6 +15,12 @@ heroku db:pull
 start server:
 rails s thin -p4000
 
+postgres console:
+psql -U mileage mileage_development
+
+for rake:
+REMEMBER to use 'bundle exec' (eg, bundle exec rake db:migrate)
+
 DONE:
 
 * convert to postgres (done?)
@@ -35,6 +41,7 @@ DONE:
 * Make it so Users own Rides and Bikes
 * look at taps to do db backups
   http://devcenter.heroku.com/articles/taps
+* saved ride profiles/templates (for common rides: commutes, etc.)
 
 TODO:
 
@@ -45,7 +52,6 @@ TODO:
 
 FEATURE TODO:
 
-* saved ride profiles/templates (for common rides: commutes, etc.)
 * better date picker (_any_ date picker!)
 * "waypoints" or something -- build up a ride from smaller segments
   (maybe, maybe not...) (this could just be "draft" vs. "live" Rides;
@@ -58,8 +64,3 @@ FEATURE TODO:
 * don't have fields for BOTH miles and km in new ride form (js switch)
 * upgrade to Rails 3.1
   (http://guides.rubyonrails.org/3_1_release_notes.html)
-
-* Template is underway, finish it off.  Look in views/rides/_form for a
-  start.  OK -- had an idea for this (select menu selection POSTs to
-  #new, sets up the Ride -- fields will be auto-filled, right?) but need
-  to figure out the routes.

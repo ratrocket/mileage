@@ -6,8 +6,7 @@
     <p>
       <%= select_tag("template",
         options_from_collection_for_select(@templates, 'id', 'description')) %>
+    <%= submit_tag "Backfill" %>
     </p>
-
-    <%= submit_tag "Fill in" %> <%# backfill? %>
   <%- end -%>
 <%- end -%>

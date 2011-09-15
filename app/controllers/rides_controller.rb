@@ -10,7 +10,13 @@ class RidesController < ApplicationController
   end
 
   def new
-    @ride = Ride.new
+    unless request.post?
+      @ride = Ride.new
+    else
+      @ride = Ride.find(params[:template])
+      @ride.template = false
+      @ride.date = Date.today
+    end
     @templates = @user.rides.templates
   end
 
