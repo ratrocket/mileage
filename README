@@ -6,7 +6,7 @@ deploy:
 git push heroku master
 
 migrate:
-heroku rake db:migrate
+heroku run rake db:migrate (for cedar apps)
 
 get db:
 heroku db:pull
@@ -64,3 +64,6 @@ FEATURE TODO:
 * don't have fields for BOTH miles and km in new ride form (js switch)
 * upgrade to Rails 3.1
   (http://guides.rubyonrails.org/3_1_release_notes.html)
+* when using a template, I could set the bike to be the most recently
+  used bike
+* editing templates is currenly impossible from the web side
