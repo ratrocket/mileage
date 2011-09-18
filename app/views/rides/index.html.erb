@@ -15,8 +15,7 @@
       <td><%= ride.date.to_formatted_s(:weekday_date) %></td>
       <td><%= ride.description %></td>
       <td><%= nice_number(ride.miles) %></td>
-      <td><%= nice_number(ride.kilometers) %>
-      </td>
+      <td><%= nice_number(ride.kilometers) %></td>
       <td><%= ride.bike.name %></td>
       <td><%= link_to "Show", ride %></td>
       <td><%= link_to "Edit", edit_ride_path(ride) %></td>
