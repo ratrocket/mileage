@@ -14,8 +14,9 @@
     <tr>
       <td><%= ride.date.to_formatted_s(:weekday_date) %></td>
       <td><%= ride.description %></td>
-      <td><%= ride.miles %></td>
-      <td><%= ride.kilometers %></td>
+      <td><%= nice_number(ride.miles) %></td>
+      <td><%= nice_number(ride.kilometers) %>
+      </td>
       <td><%= ride.bike.name %></td>
       <td><%= link_to "Show", ride %></td>
       <td><%= link_to "Edit", edit_ride_path(ride) %></td>
@@ -25,8 +26,8 @@
 </table>
 
 <p>
-Total mileage: <%= number_with_precision(@rides.map(&:miles).sum, :precision => 2) %>
-  (<%= number_with_precision(@rides.map(&:kilometers).sum, :precision => 2) %> km)
+Total mileage: <%= nice_number(@rides.map(&:miles).sum) %>
+  (<%= nice_number(@rides.map(&:kilometers).sum) %> km)
 </p>
 
 <p><%= link_to "New Ride", new_ride_path %></p>
