@@ -48,8 +48,8 @@ DONE:
 
 TODO:
 
-* TESTS
 * get timezone correct in the heroku database (for timestamps)
+* TESTS
 * rvm/readline on my laptop?
   (https://rvm.beginrescueend.com/packages/readline/)
 
