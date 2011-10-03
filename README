@@ -48,8 +48,8 @@ DONE:
 
 TODO:
 
-* get timezone correct in the heroku database (for timestamps)
 * TESTS
+* get timezone correct in the heroku database (for timestamps)
 * rvm/readline on my laptop?
   (https://rvm.beginrescueend.com/packages/readline/)
 
@@ -70,3 +70,7 @@ FEATURE TODO:
 * when using a template, I could set the bike to be the most recently
   used bike
 * editing templates is currenly impossible from the web side
+* something like templates for bikes to use the version numbers.  I want
+  to be able to base a "new" bike on an existing bike, changing just
+  what's changed.  For when major changes are made to a bike but it's
+  still the same bike... Or is it?

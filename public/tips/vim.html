@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>
+      vim lore
+    </title>
+  </head>
+  <body>
+
+    <h2>
+      techniques
+    </h2>
+
+    <p>
+    capture output of an ex command
+    <pre>
+    :redir @a
+    :[command whose output you want to capture]
+    :redir END
+    </pre>
+    Now register a (@a) has the output of the command.  Paste it into a
+    buffer with
+    <pre>
+    "ap
+    </pre>
+    (<a href="http://vim.wikia.com/wiki/Capture_ex_command_output">From
+      vim wiki</a>)
+    </p>
+    <hr/>
+    <p>
+    Of course the best: <a
+      href="http://vim.wikia.com/wiki/Power_of_g">Power of g</a>.
+    </p>
+    <hr/>
+  </body>
+</html>

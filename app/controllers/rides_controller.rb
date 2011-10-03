@@ -47,9 +47,4 @@ class RidesController < ApplicationController
     @ride.destroy
     redirect_to rides_url, :notice => "Successfully destroyed ride."
   end
-
-  private
-  def set_user
-    @user ||= current_user  # dunno about the ||= ...
-  end
 end

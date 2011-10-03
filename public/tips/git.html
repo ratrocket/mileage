@@ -1,0 +1,230 @@
+<html>
+  <head>
+    <title>
+      git lore
+    </title>
+  </head>
+  <body>
+
+    <h2>
+      techniques
+    </h2>
+
+    <p>
+    When you're in a non-master branch (remote tracking branch or topic
+    branch... I don't know what those mean) don't do plain git push.
+    Instead:
+    <pre>
+    git push origin xyz  # where xyz is the branch you're in/working on
+    </pre>
+    For reference a "normal" push (when working on master) spelled out
+    explicitly is just:
+    <pre>
+    git push origin master
+    </pre>
+    (but also see below for a "better" branch workflow.  Hint: you
+    rebase before you ever push)
+    </p>
+    <hr/>
+
+    <p>
+    [Note: this IS essentially correct, but to understand it I had to
+    read and comprehend the NEXT item below -- what Mark Longair says.]
+    </p>
+    <p>
+    A git pull trick for checking if you'll run into problems.
+    <pre>
+    git fetch origin
+    git diff paypal origin/paypal  # diffs your local branch against remote-tracking branch
+    </pre>
+    From an answer <a
+      href="http://stackoverflow.com/questions/292357/whats-the-difference-between-git-pull-and-git-fetch">here</a>.
+    </p>
+    <hr/>
+
+    <p>
+    [High quality info]
+    </p>
+    <p>
+    Mark Longair says that to pull changes from master into your feature
+    branch do
+    <pre>
+    git fetch origin # updates all remote-tracking branches for origin
+    git checkout feature
+    git merge origin/master
+    </pre>
+    From a <a
+      href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/">great
+      article</a> on why you should use fetch + merge instead of pull.
+    (This was from the comments.)
+    </p>
+    <p>
+    <a
+      href="http://stackoverflow.com/questions/6631337/are-there-different-meanings-to-the-concept-of-tracking-in-git/6631524#6631524">This
+      comment</a> he makes on Stack Overflow has good info the git term
+    "track" (there are two distinct meanings of the word) and about
+    local branches, remote-tracking branches (he uses the hyphen), and
+    how it all relates to "the branch in the remote repository".
+    </p>
+    <hr/>
+
+    <p>
+    when you're done with branch xyz:
+    <pre>
+      git rebase master  # you're in branch xyz
+      git checkout master
+      git diff master xyz  # opt.
+      git merge xyz
+      git branch -d xyz
+    </pre>
+    </p>
+    <hr/>
+
+    <p>
+    keeping a branch in sync with master:
+    <pre>
+    # to be sure
+    git checkout master
+    git pull
+    git checkout xyz
+    </pre>
+    if you have NOT pushed your branch remotely:
+    <pre>
+    git rebase master
+    </pre>
+    if you HAVE pushed your branch remotely:
+    <pre>
+    git merge master  # this is the most likely scenario for me
+    </pre>
+    </p>
+    <hr/>
+
+    <p>
+    dry run for merge (I'm not convinced this is completely "dry"; more
+    pointers below for other dry runs):
+    </p>
+    <pre>
+    git merge --no-commit --no-ff &lt;args&gt;
+    </pre>
+    <hr/>
+
+    <p>
+    when git status tells you "your branch is ahead of origin/X by N
+    commits but git diff shows no differences, do:
+    <pre>
+    git diff origin/branchname  # see changes
+    git push origin branchname  # square everything away... maybe?
+    </pre>
+    </p>
+    <hr/>
+
+    <p>
+    a reasonable seeming branch workflow that I don't happen to follow
+    very much.  The idea is you don't push to your remote branch until
+    it's been rebased.  I think doing pushes then rebasing sets up the
+    "your branch is ahead..." message and possibly creates what look
+    like duplicate commits on github which just seems wrong/weird.  So
+    the workflow is like:
+    </p>
+    <pre>
+    code...code...
+    commit
+    switch to master (git co master)
+    git pull
+    switch back to branch (git co branchname)
+    git rebase master
+    git push origin branchname
+    </pre>
+    This keeps you always up-to-date with any changes in master.
+    <hr/>
+
+    <p>
+    </p>
+    <hr/>
+
+    <h2>
+      pointers
+    </h2>
+
+    <p>
+    keeping branch in sync with master (I like the first one):
+    </p>
+
+    <p>
+    <a href="http://stackoverflow.com/questions/5691557/git-keeping-my-branch-up-to-date-with-master">http://stackoverflow.com/questions/5691557/git-keeping-my-branch-up-to-date-with-master</a>
+    </p>
+
+    <p>
+    <a href="http://stackoverflow.com/questions/4795815/how-should-i-keep-my-git-project-branch-up-to-date-with-master">http://stackoverflow.com/questions/4795815/how-should-i-keep-my-git-project-branch-up-to-date-with-master</a>
+    </p>
+
+    <p>
+    cheat sheet:
+    </p>
+
+    <p>
+    <a href="http://cheat.errtheblog.com/s/git">http://cheat.errtheblog.com/s/git</a>
+    </p>
+
+    <p>
+    dry run for merges (2nd might be more authoritative):
+    </p>
+
+    <p>
+    <a href="http://stackoverflow.com/questions/2573905/do-all-git-commands-have-a-dry-run-option">http://stackoverflow.com/questions/2573905/do-all-git-commands-have-a-dry-run-option</a>
+    </p>
+
+    <p>
+    <a href="http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option">http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option</a>
+    </p>
+
+    <p>
+    on rebasing (first seems preferable):
+    </p>
+
+    <p>
+    <a href="http://learn.github.com/p/rebasing.html">http://learn.github.com/p/rebasing.html</a>
+    </p>
+
+    <p>
+    <a href="http://progit.org/book/ch3-6.html">http://progit.org/book/ch3-6.html</a>
+    </p>
+
+    <p>
+    <a href="http://stackoverflow.com/questions/96615/git-is-it-pull-or-rebase-when-working-on-branches-with-other-people">http://stackoverflow.com/questions/96615/git-is-it-pull-or-rebase-when-working-on-branches-with-other-people</a>
+    </p>
+
+    <p>
+    git_remote_branch on github:
+    </p>
+
+    <p>
+    <a href="https://github.com/webmat/git_remote_branch">https://github.com/webmat/git_remote_branch</a>
+    </p>
+
+    <p>
+    my favorite cheat sheet (search for "Pulling a new branch from a
+    remote repository" is where it gets good):
+    </p>
+
+    <p>
+    <a href="http://help.github.com/git-cheat-sheets/">http://help.github.com/git-cheat-sheets/</a>
+    </p>
+
+    <p>
+    serious git tips (that you didn't know about):
+    </p>
+
+    <p>
+    <a href="http://mislav.uniqpath.com/2010/07/git-tips/">http://mislav.uniqpath.com/2010/07/git-tips/</a>
+    </p>
+
+    <p>
+    serious workflow discussion:
+    </p>
+
+    <p>
+    <a href="http://stackoverflow.com/questions/457927/git-workflow-and-rebase-vs-merge-questions">http://stackoverflow.com/questions/457927/git-workflow-and-rebase-vs-merge-questions</a>
+    </p>
+  </body>
+</html>

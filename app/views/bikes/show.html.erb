@@ -1,0 +1,164 @@
+<% title "Bike" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bike.name %>
+</p>
+<p>
+  <strong>Slug:</strong>
+  <%= @bike.slug %>
+</p>
+<p>
+  <strong>Nickname:</strong>
+  <%= @bike.nickname %>
+</p>
+<p>
+  <strong>Frame:</strong>
+  <%= @bike.frame %>
+</p>
+<p>
+  <strong>Fork:</strong>
+  <%= @bike.fork %>
+</p>
+<p>
+  <strong>Handlebars:</strong>
+  <%= @bike.handlebars %>
+</p>
+<p>
+  <strong>Stem:</strong>
+  <%= @bike.stem %>
+</p>
+<p>
+  <strong>Headset:</strong>
+  <%= @bike.headset %>
+</p>
+<p>
+  <strong>Saddle:</strong>
+  <%= @bike.saddle %>
+</p>
+<p>
+  <strong>Seat Post:</strong>
+  <%= @bike.seat_post %>
+</p>
+<p>
+  <strong>Brakes:</strong>
+  <%= @bike.brakes %>
+</p>
+<p>
+  <strong>Brake Pads:</strong>
+  <%= @bike.brake_pads %>
+</p>
+<p>
+  <strong>Brake Levers:</strong>
+  <%= @bike.brake_levers %>
+</p>
+<p>
+  <strong>Brake Cables:</strong>
+  <%= @bike.brake_cables %>
+</p>
+<p>
+  <strong>Crank:</strong>
+  <%= @bike.crank %>
+</p>
+<p>
+  <strong>Chainrings:</strong>
+  <%= @bike.chainrings %>
+</p>
+<p>
+  <strong>Pedals:</strong>
+  <%= @bike.pedals %>
+</p>
+<p>
+  <strong>Bottom Bracket:</strong>
+  <%= @bike.bottom_bracket %>
+</p>
+<p>
+  <strong>Chain:</strong>
+  <%= @bike.chain %>
+</p>
+<p>
+  <strong>Front Derailer:</strong>
+  <%= @bike.front_derailer %>
+</p>
+<p>
+  <strong>Rear Derailer:</strong>
+  <%= @bike.rear_derailer %>
+</p>
+<p>
+  <strong>Derailer Cables:</strong>
+  <%= @bike.derailer_cables %>
+</p>
+<p>
+  <strong>Shift Levers:</strong>
+  <%= @bike.shift_levers %>
+</p>
+<p>
+  <strong>Front Hub:</strong>
+  <%= @bike.front_hub %>
+</p>
+<p>
+  <strong>Rear Hub:</strong>
+  <%= @bike.rear_hub %>
+</p>
+<p>
+  <strong>Rims:</strong>
+  <%= @bike.rims %>
+</p>
+<p>
+  <strong>Spokes:</strong>
+  <%= @bike.spokes %>
+</p>
+<p>
+  <strong>Freewheel Cassette:</strong>
+  <%= @bike.freewheel_cassette %>
+</p>
+<p>
+  <strong>Tires:</strong>
+  <%= @bike.tires %>
+</p>
+<p>
+  <strong>Tubes:</strong>
+  <%= @bike.tubes %>
+</p>
+<p>
+  <strong>Fenders:</strong>
+  <%= @bike.fenders %>
+</p>
+<p>
+  <strong>Racks:</strong>
+  <%= @bike.racks %>
+</p>
+<p>
+  <strong>Front Lights:</strong>
+  <%= @bike.front_lights %>
+</p>
+<p>
+  <strong>Rear Lights:</strong>
+  <%= @bike.rear_lights %>
+</p>
+<p>
+  <strong>Bottle Cages:</strong>
+  <%= @bike.bottle_cages %>
+</p>
+<p>
+  <strong>Luggage:</strong>
+  <%= @bike.luggage %>
+</p>
+<p>
+  <strong>Wheelbuilder:</strong>
+  <%= @bike.wheelbuilder %>
+</p>
+<p>
+  <strong>Misc:</strong>
+  <%= @bike.misc %>
+</p>
+<p>
+  <strong>Version:</strong>
+  <%= @bike.version %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_bike_path(@bike) %> |
+  <%= link_to "Destroy", @bike, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", bikes_path %>
+</p>

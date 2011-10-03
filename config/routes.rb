@@ -1,4 +1,6 @@
 Mileage::Application.routes.draw do
+  resources :bikes
+
   root :to => "rides#index"
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

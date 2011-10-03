@@ -1,0 +1,159 @@
+<%= form_for @bike do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :nickname %> (As in "Kogswell P/R" becomes "Kogswell")<br />
+    <%= f.text_field :nickname, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :frame %><br />
+    <%= f.text_field :frame, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :fork %><br />
+    <%= f.text_field :fork, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :handlebars %><br />
+    <%= f.text_field :handlebars, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :stem %><br />
+    <%= f.text_field :stem, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :headset %><br />
+    <%= f.text_field :headset, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :saddle %><br />
+    <%= f.text_field :saddle, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :seat_post %><br />
+    <%= f.text_field :seat_post, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :brakes %><br />
+    <%= f.text_field :brakes, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :brake_pads %><br />
+    <%= f.text_field :brake_pads, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :brake_levers %><br />
+    <%= f.text_field :brake_levers, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :brake_cables %><br />
+    <%= f.text_field :brake_cables, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :crank %><br />
+    <%= f.text_field :crank, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :chainrings %><br />
+    <%= f.text_field :chainrings, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :pedals %><br />
+    <%= f.text_field :pedals, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :bottom_bracket %><br />
+    <%= f.text_field :bottom_bracket, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :chain %><br />
+    <%= f.text_field :chain, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :front_derailer %><br />
+    <%= f.text_field :front_derailer, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :rear_derailer %><br />
+    <%= f.text_field :rear_derailer, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :derailer_cables %><br />
+    <%= f.text_field :derailer_cables, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :shift_levers %><br />
+    <%= f.text_field :shift_levers, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :front_hub %><br />
+    <%= f.text_field :front_hub, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :rear_hub %><br />
+    <%= f.text_field :rear_hub, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :rims %><br />
+    <%= f.text_field :rims, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :spokes %><br />
+    <%= f.text_field :spokes, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :freewheel_cassette %><br />
+    <%= f.text_field :freewheel_cassette, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :tires %><br />
+    <%= f.text_field :tires, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :tubes %><br />
+    <%= f.text_field :tubes, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :fenders %><br />
+    <%= f.text_field :fenders, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :racks %><br />
+    <%= f.text_field :racks, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :front_lights %><br />
+    <%= f.text_field :front_lights, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :rear_lights %><br />
+    <%= f.text_field :rear_lights, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :bottle_cages %><br />
+    <%= f.text_field :bottle_cages, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :luggage %><br />
+    <%= f.text_field :luggage, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :wheelbuilder %><br />
+    <%= f.text_field :wheelbuilder, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :misc %><br />
+    <%= f.text_field :misc, :size => 100 %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </p>
+  <p>
+    <%= f.hidden_field :user_id, {:value => @user.id} %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

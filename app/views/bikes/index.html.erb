@@ -1,0 +1,19 @@
+<% title "Bikes" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Version</th>
+  </tr>
+  <% @bikes.each do |bike| %>
+    <tr>
+      <td><%= bike.name %></td>
+      <td><%= bike.version %></td>
+      <td><%= link_to "Show", bike %></td>
+      <td><%= link_to "Edit", edit_bike_path(bike) %></td>
+      <td><%= link_to "Destroy", bike, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Bike", new_bike_path %></p>
