@@ -74,3 +74,8 @@ FEATURE TODO:
   to be able to base a "new" bike on an existing bike, changing just
   what's changed.  For when major changes are made to a bike but it's
   still the same bike... Or is it?
+* instead of just total mileage on rides page, now that multiple bikes
+  are really in the mix (as of October 2011) I should break down mileage
+  by bicycle and give a total.
+* Having ALL rides on one page is getting unwieldy too. Should organize
+  by month or by month&bike or...
