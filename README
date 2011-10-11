@@ -79,3 +79,19 @@ FEATURE TODO:
   by bicycle and give a total.
 * Having ALL rides on one page is getting unwieldy too. Should organize
   by month or by month&bike or...
+* ideas for filtering what rides are shown by URL.
+  E.g., hollow-river.com/rides/2011        => all 2011 rides
+        hollow-river.com/rides/2011/10     => Oct 2011 rides
+        hollow-river.com/rides/kogswell_pr => all P/R rides ever
+        hollow-river.com/rides/all         => everything (current default)
+        hollow-river.com/rides             => default to? (cur. yr/month?)
+        hollow-river.com/rides/2011/kogswell_pr    => combine???
+        hollow-river.com/rides/2011/09/kogswell_pr => ditto
+  The combining bikes with dates seems like it will be messy... Would
+  have to use a splat I'm guessing, then parse it in the controller.
+  Yuck.
+
+  OR, could do a query string. Easy, dirty, quick, would work.
+  So: hollow-river.com/rides?y=2011&m=09&b=kogswell_pr+bridgestone_mb_1
+  params are y, m, b for year, month, bike
+  Mega ugly.
