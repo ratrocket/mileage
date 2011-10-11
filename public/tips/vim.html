@@ -31,5 +31,31 @@
       href="http://vim.wikia.com/wiki/Power_of_g">Power of g</a>.
     </p>
     <hr/>
+
+    <p>
+    a semi-reaonable way to search all buffers (default :bufdo output is
+    really ugly and hard to read)
+    <pre>
+    :rew
+    :bufdo 0
+    :bufdo g/search_term/
+    :ls
+    </pre>
+    :rew changes current buffer to the first argument.  :bufdo 0 puts
+    every file's cursor on line 1.  2nd :bufdo does the search.  :ls
+    shows you what files are not at line 1 anymore (so search term was
+    found).  <a
+      href="http://stackoverflow.com/questions/843602/vim-how-can-i-search-buffers">Via
+      S.O.</a>
+    </p>
+    <hr/>
+
+    <p>
+    </p>
+    <hr/>
+
+    <p>
+    </p>
+    <hr/>
   </body>
 </html>
