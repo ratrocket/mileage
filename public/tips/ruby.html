@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>
+      ruby lore
+    </title>
+  </head>
+  <body>
+
+    <h2>
+      techniques
+    </h2>
+    <p>
+    to help working with non-ascii:
+    <pre>
+    char to ascii value:
+    ?a gets 97
+    ?\n gets 10
+    
+    string to integer
+    'a'[0] gets 97
+    in ruby 1.9 apparently that won't work, use ord:
+    'a'.ord gets 97
+    
+    [MOST IMPORTANTLY] to go from integer to char use chr:
+    97.chr gets "a"
+    10.chr gets "\n"
+    
+    To inspect a fucked up string, do
+    
+    =&gt; "AV Club Album Review “Black Up” June 2011"
+    &gt;&gt; a.title.each_byte do |c|
+    ?&gt;   puts c
+    &gt;&gt;   puts c.chr
+    &gt;&gt;   puts "======================="
+    &gt;&gt; end
+    </pre>
+    ref: <a
+      href="http://snippets.dzone.com/posts/show/4041">http://snippets.dzone.com/posts/show/4041</a>
+    </p>
+  </body>
+</html>
