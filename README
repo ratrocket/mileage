@@ -80,13 +80,13 @@ FEATURE TODO:
 * Having ALL rides on one page is getting unwieldy too. Should organize
   by month or by month&bike or...
 * ideas for filtering what rides are shown by URL.
-  E.g., hollow-river.com/rides/2011        => all 2011 rides
-        hollow-river.com/rides/2011/10     => Oct 2011 rides
-        hollow-river.com/rides/kogswell_pr => all P/R rides ever
-        hollow-river.com/rides/all         => everything (current default)
-        hollow-river.com/rides             => default to? (cur. yr/month?)
-        hollow-river.com/rides/2011/kogswell_pr    => combine???
-        hollow-river.com/rides/2011/09/kogswell_pr => ditto
+  E.g., site.com/rides/2011        => all 2011 rides
+        site.com/rides/2011/10     => Oct 2011 rides
+        site.com/rides/kogswell_pr => all P/R rides ever
+        site.com/rides/all         => everything (current default)
+        site.com/rides             => default to? (cur. yr/month?)
+        site.com/rides/2011/kogswell_pr    => combine???
+        site.com/rides/2011/09/kogswell_pr => ditto
   The combining bikes with dates seems like it will be messy... Would
   have to use a splat I'm guessing, then parse it in the controller.
   Yuck.
@@ -95,3 +95,9 @@ FEATURE TODO:
   So: hollow-river.com/rides?y=2011&m=09&b=kogswell_pr+bridgestone_mb_1
   params are y, m, b for year, month, bike
   Mega ugly.
+* maybe a Reminder (or ?) class would be good (or is it just a Note?
+  Already have Notes) so I can enter reminders to book rides without
+  actually figuring out the distance.  This would be helpful.
+* So... after looking at the Note feature, I'm not sure it's a great
+  idea.  Am I using it?  A Reminder certainly could be a Note, but is
+  Note then just a waste basket?  Big questions.
