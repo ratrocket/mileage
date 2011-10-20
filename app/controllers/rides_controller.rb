@@ -2,7 +2,16 @@ class RidesController < ApplicationController
   before_filter :login_required, :set_user
 
   def index
-    @rides = @user.rides.reals.sort_by(&:date)
+    if params[:filter] && params[:filter].values.map(&:empty?).uniq.include?(false)
+
+      year  = params[:filter][:"start_date(1i)"].to_i
+      month = params[:filter][:"start_date(2i)"].to_i
+      bike  = params[:filter][:bike]
+
+      @rides = @user.rides.reals.bike(bike).year(year).month(month).sort_by(&:date)
+    else
+      @rides = @user.rides.reals.sort_by(&:date)
+    end
   end
 
   def show

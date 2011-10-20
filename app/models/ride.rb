@@ -7,19 +7,41 @@ class Ride < ActiveRecord::Base
   # can't do this OR with a where() it seems...
   scope :reals, :conditions => ['template is null or template = false']
 
-  # my week goes from Sunday to Saturday...
-  scope :weekly, lambda {|*args|
+  ##
+  # When scopes
+  #
+  scope :week, lambda {|*args|  # my week goes from Sunday to Saturday...
     d = self.str2date(args.first) || Date.today
     where(:date => d.monday.yesterday..d.sunday.yesterday)
   }
-  scope :monthly, lambda {|*args|
-    d = self.str2date(args.first) || Date.today
-    where(:date => d.beginning_of_month..d.end_of_month)
+  #scope :month, lambda {|*args|
+  #  d = self.str2date(args.first) || Date.today
+  #  where(:date => d.beginning_of_month..d.end_of_month)
+  #}
+  scope :month, lambda {|m|
+    unless m.nil?
+      d = self.str2date(m) || Date.today
+      where(:date => d.beginning_of_month..d.end_of_month)
+    end
   }
-  scope :yearly, lambda {|*args|
-    d = self.str2date(args.first) || Date.today
-    where(:date => d.beginning_of_year..d.end_of_year)
+  #scope :year, lambda {|*args|
+  #  d = self.str2date(args.first) || Date.today
+  #  where(:date => d.beginning_of_year..d.end_of_year)
+  #}
+  scope :year, lambda {|y|
+    unless y.nil?
+      d = self.str2date(y) || Date.today
+      where(:date => d.beginning_of_year..d.end_of_year)
+    end
   }
+
+  ##
+  # What scopes
+  #
+  scope :bike, lambda {|b|
+    where(:bike_id => Bike.find_by_slug(b)) unless (b.nil? || b.empty?)
+  }
+  scope :service, :conditions => ["description like ?", "SERVICE%"]
 
   before_save :convert_units
 

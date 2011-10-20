@@ -79,6 +79,20 @@ FEATURE TODO:
   by bicycle and give a total.
 * Having ALL rides on one page is getting unwieldy too. Should organize
   by month or by month&bike or...
+* maybe a Reminder (or ?) class would be good (or is it just a Note?
+  Already have Notes) so I can enter reminders to book rides without
+  actually figuring out the distance.  This would be helpful.
+* So... after looking at the Note feature, I'm not sure it's a great
+  idea.  Am I using it?  A Reminder certainly could be a Note, but is
+  Note then just a waste basket?  Big questions.
+* Be able to collect all SERVICE entries for each bike
+* TODOs for each bike: what needs to be fixed, projects I want to do,
+  etc.
+* Markdown (or something) for ride descriptions (& probably other more)
+  (maybe rdiscount: https://github.com/rtomayko/rdiscount)
+
+UNDER WAY
+
 * ideas for filtering what rides are shown by URL.
   E.g., site.com/rides/2011        => all 2011 rides
         site.com/rides/2011/10     => Oct 2011 rides
@@ -95,9 +109,6 @@ FEATURE TODO:
   So: hollow-river.com/rides?y=2011&m=09&b=kogswell_pr+bridgestone_mb_1
   params are y, m, b for year, month, bike
   Mega ugly.
-* maybe a Reminder (or ?) class would be good (or is it just a Note?
-  Already have Notes) so I can enter reminders to book rides without
-  actually figuring out the distance.  This would be helpful.
-* So... after looking at the Note feature, I'm not sure it's a great
-  idea.  Am I using it?  A Reminder certainly could be a Note, but is
-  Note then just a waste basket?  Big questions.
+
+Going with an ugly solution for now...  The date scopes are somewhat
+messed up.  That's #1 TODO!

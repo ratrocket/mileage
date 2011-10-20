@@ -2,6 +2,19 @@
 
 <p><%= link_to "New Ride", new_ride_path %></p>
 
+<% form_tag '', :method => :get do %>
+  <%= select("filter", "bike", [["Bike", nil]] + Bike.all.map {|b| [b.name, b.slug]}) %>
+  <%= date_select("filter", "date",
+                  :start_year => 2011,
+                  :end_year => 2012,
+                  :use_short_month => true,
+                  :add_month_numbers => true,
+                  :discard_day => true,
+                  :prompt => {:month => "Month", :year => "Year"}) %>
+
+  <%= submit_tag 'Filter' %>
+<% end %>
+
 <table>
   <tr>
     <th>Date</th>
