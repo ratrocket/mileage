@@ -87,6 +87,17 @@
     <hr/>
 
     <p>
+    Pasting the not-most recent thing (I'm not sure if this works with
+    <code>d</code> deletions or only with <code>y</code> yanks).  From
+    <a
+      href="http://stackoverflow.com/questions/54255/in-vim-is-there-a-way-to-delete-without-putting-text-in-the-register">stackoverflow</a>.
+    <pre>
+    "0p  # same as 'p'
+    "1p  # same as 'p' ('unnamed' buffers 0 and 1 are the same...)
+    "2p  # 2nd to last thing yanked
+    ...
+    "9p  # 10th (?) to last thing yanked
+    </pre>
     </p>
     <hr/>
 
