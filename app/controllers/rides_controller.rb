@@ -12,6 +12,7 @@ class RidesController < ApplicationController
       bike = @filter.bike = params[:filter][:bike]
 
       @rides = @user.rides.reals.bike(bike).month_and_year(month, year).sort_by(&:date)
+      @services = @user.rides.reals.service.bike(bike).month_and_year(month, year).sort_by(&:date)
     else
       @rides = @user.rides.reals.sort_by(&:date)
     end

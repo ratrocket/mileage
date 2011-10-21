@@ -45,6 +45,22 @@ DONE:
 * look at taps to do db backups
   http://devcenter.heroku.com/articles/taps
 * saved ride profiles/templates (for common rides: commutes, etc.)
+* ideas for filtering what rides are shown by URL.
+  E.g., site.com/rides/2011        => all 2011 rides
+        site.com/rides/2011/10     => Oct 2011 rides
+        site.com/rides/kogswell_pr => all P/R rides ever
+        site.com/rides/all         => everything (current default)
+        site.com/rides             => default to? (cur. yr/month?)
+        site.com/rides/2011/kogswell_pr    => combine???
+        site.com/rides/2011/09/kogswell_pr => ditto
+  The combining bikes with dates seems like it will be messy... Would
+  have to use a splat I'm guessing, then parse it in the controller.
+  Yuck.
+  OR, could do a query string. Easy, dirty, quick, would work.
+  So: hollow-river.com/rides?y=2011&m=09&b=kogswell_pr+bridgestone_mb_1
+  params are y, m, b for year, month, bike
+  Mega ugly.
+  (I went with the GET query string)
 
 TODO:
 
@@ -92,23 +108,3 @@ FEATURE TODO:
   (maybe rdiscount: https://github.com/rtomayko/rdiscount)
 
 UNDER WAY
-
-* ideas for filtering what rides are shown by URL.
-  E.g., site.com/rides/2011        => all 2011 rides
-        site.com/rides/2011/10     => Oct 2011 rides
-        site.com/rides/kogswell_pr => all P/R rides ever
-        site.com/rides/all         => everything (current default)
-        site.com/rides             => default to? (cur. yr/month?)
-        site.com/rides/2011/kogswell_pr    => combine???
-        site.com/rides/2011/09/kogswell_pr => ditto
-  The combining bikes with dates seems like it will be messy... Would
-  have to use a splat I'm guessing, then parse it in the controller.
-  Yuck.
-
-  OR, could do a query string. Easy, dirty, quick, would work.
-  So: hollow-river.com/rides?y=2011&m=09&b=kogswell_pr+bridgestone_mb_1
-  params are y, m, b for year, month, bike
-  Mega ugly.
-
-Going with an ugly solution for now...  The date scopes are somewhat
-messed up.  That's #1 TODO!

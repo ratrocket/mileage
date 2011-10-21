@@ -37,8 +37,14 @@
 </table>
 
 <p>
-Total mileage: <%= nice_number(@rides.map(&:miles).sum) %>
-  (<%= nice_number(@rides.map(&:kilometers).sum) %> km)
+<%= nice_number(@rides.map(&:miles).sum) %> miles /
+  <%= nice_number(@rides.map(&:kilometers).sum) %> km
+</p>
+<p>
+Rides: <%= @rides.size - @services.size %>
+</p>
+<p>
+Services: <%= @services.size %>
 </p>
 
 <p><%= link_to "New Ride", new_ride_path %></p>
