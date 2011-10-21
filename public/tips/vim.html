@@ -51,6 +51,46 @@
     <hr/>
 
     <p>
+    Multiple clipboards &amp; some quick tips (from <a
+      href="http://aymanh.com/a-collection-of-vim-tips#multiple-clipboards">http://aymanh.com/a-collection-of-vim-tips#multiple-clipboards</a>
+    </p>
+
+    <p>
+    You may use registers to simulate multiple clipboards for copy
+    and paste operations. Register names consist of one letter or
+    number. To yank the current selection in visual mode to the register
+    <code>a</code>, use <code>"ay</code>. To paste the contents of
+    register <code>a</code>, use <code>"ap</code>. The same applies to
+    other registers (<code>"iy</code> and <code>"ip</code>, for
+    register<code>i</code>). To view contents of all registers, use:
+    <code>:reg</code>.
+    </p>
+
+    <ul>
+      <li>
+      <code>zb</code>, <code>zt</code>, and <code>zz</code> scroll
+      the screen to make the current line at the top, bottom, or
+      middle.
+      </li>
+      <li>
+      Use <code>:set wrap</code> and <code>:set nowrap</code> to
+      toggle long line wrapping.
+      </li>
+      <li>
+      To visually check the difference between two files, use
+      <code>vimdiff file1 file2</code>. It provides a nice
+      color-highlighted view with code folding, much better than plain
+      diff.
+      </li>
+    </ul>
+    </p>
+    <hr/>
+
+    <p>
+    </p>
+    <hr/>
+
+    <p>
     </p>
     <hr/>
 
