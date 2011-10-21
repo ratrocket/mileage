@@ -4,11 +4,14 @@ class RidesController < ApplicationController
   def index
     if params[:filter] && params[:filter].values.map(&:empty?).uniq.include?(false)
 
-      year  = params[:filter][:"start_date(1i)"].to_i
-      month = params[:filter][:"start_date(2i)"].to_i
-      bike  = params[:filter][:bike]
+      f = Class.new do; attr_accessor :bike, :year, :month; end
+      @filter = f.new
 
-      @rides = @user.rides.reals.bike(bike).year(year).month(month).sort_by(&:date)
+      year = @filter.year = params[:filter][:year].to_i
+      month = @filter.month = params[:filter][:month].to_i
+      bike = @filter.bike = params[:filter][:bike]
+
+      @rides = @user.rides.reals.bike(bike).month_and_year(month, year).sort_by(&:date)
     else
       @rides = @user.rides.reals.sort_by(&:date)
     end

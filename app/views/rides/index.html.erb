@@ -4,13 +4,12 @@
 
 <% form_tag '', :method => :get do %>
   <%= select("filter", "bike", [["Bike", nil]] + Bike.all.map {|b| [b.name, b.slug]}) %>
-  <%= date_select("filter", "date",
-                  :start_year => 2011,
-                  :end_year => 2012,
-                  :use_short_month => true,
-                  :add_month_numbers => true,
-                  :discard_day => true,
-                  :prompt => {:month => "Month", :year => "Year"}) %>
+  <%= select("filter", "year", [["Year", nil], [2011, 2011], [2012, 2012]]) %>
+  <%= select("filter", "month", [["Month", nil],
+             ["1 - Jan", 1], ["2 - Feb", 2], ["3 - Mar", 3], ["4 - Apr", 4],
+             ["5 - May", 5], ["6 - Jun", 6], ["7 - Jul", 7], ["8 - Aug", 8],
+             ["9 - Sep", 9], ["10 - Oct", 10], ["11 - Nov", 11], ["12 - Dec", 12],
+  ]) %>
 
   <%= submit_tag 'Filter' %>
 <% end %>

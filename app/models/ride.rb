@@ -3,9 +3,9 @@ class Ride < ActiveRecord::Base
   has_many :notes
   belongs_to :user
 
-  scope :templates, where(:template => true)
-  # can't do this OR with a where() it seems...
+  # can't do an OR with a where()?
   scope :reals, :conditions => ['template is null or template = false']
+  scope :templates, where(:template => true)
 
   ##
   # When scopes
@@ -14,24 +14,15 @@ class Ride < ActiveRecord::Base
     d = self.str2date(args.first) || Date.today
     where(:date => d.monday.yesterday..d.sunday.yesterday)
   }
-  #scope :month, lambda {|*args|
-  #  d = self.str2date(args.first) || Date.today
-  #  where(:date => d.beginning_of_month..d.end_of_month)
-  #}
-  scope :month, lambda {|m|
-    unless m.nil?
-      d = self.str2date(m) || Date.today
-      where(:date => d.beginning_of_month..d.end_of_month)
-    end
-  }
-  #scope :year, lambda {|*args|
-  #  d = self.str2date(args.first) || Date.today
-  #  where(:date => d.beginning_of_year..d.end_of_year)
-  #}
-  scope :year, lambda {|y|
-    unless y.nil?
-      d = self.str2date(y) || Date.today
+
+  scope :month_and_year, lambda {|m,y|  # or just year
+    if m.nil? || m.zero?
+      d = self.str2date("1/1/#{y}")
       where(:date => d.beginning_of_year..d.end_of_year)
+    else
+      y = Date.today.year if (y.nil? || y.zero?)
+      d = self.str2date("#{m}/1/#{y}")
+      where(:date => d.beginning_of_month..d.end_of_month)
     end
   }
 
@@ -39,7 +30,7 @@ class Ride < ActiveRecord::Base
   # What scopes
   #
   scope :bike, lambda {|b|
-    where(:bike_id => Bike.find_by_slug(b)) unless (b.nil? || b.empty?)
+    where(:bike_id => Bike.find_by_slug(b)) unless b.blank?
   }
   scope :service, :conditions => ["description like ?", "SERVICE%"]
 
