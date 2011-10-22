@@ -41,10 +41,12 @@
   <%= nice_number(@rides.map(&:kilometers).sum) %> km
 </p>
 <p>
-Rides: <%= @rides.size - @services.size %>
+Rides: <%= @rides_only.size %>
+(<%= @rides_by_bike.map {|r| "#{r.first}: #{r.second} for #{nice_number(r.third)} miles"}.join(", ") %>)
 </p>
 <p>
 Services: <%= @services.size %>
+(<%= @services_by_bike.map {|s| "#{s.first}: #{s.last}"}.join(", ") %>)
 </p>
 
 <p><%= link_to "New Ride", new_ride_path %></p>

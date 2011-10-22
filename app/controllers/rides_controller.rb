@@ -13,6 +13,11 @@ class RidesController < ApplicationController
 
       @rides = @user.rides.reals.bike(bike).month_and_year(month, year).sort_by(&:date)
       @services = @user.rides.reals.service.bike(bike).month_and_year(month, year).sort_by(&:date)
+      @rides_only = @rides - @services
+
+      # these could perhaps be simpler?
+      @rides_by_bike = @rides_only.map(&:bike).uniq.map {|b| [b.name, @rides_only.select {|r| r.bike_id == b.id}.size, @rides_only.select {|r| r.bike_id == b.id}.map(&:miles).sum]}
+      @services_by_bike = @services.map(&:bike).uniq.map {|b| [b.name, @services.select {|r| r.bike_id == b.id}.size]}
     else
       @rides = @user.rides.reals.sort_by(&:date)
       @services = @user.rides.reals.service.sort_by(&:date)
