@@ -15,14 +15,18 @@ class Ride < ActiveRecord::Base
     where(:date => d.monday.yesterday..d.sunday.yesterday)
   }
 
+  # nil values mean to skip everything; zero means set default
+  # "skip everything" only if both are nil though
   scope :month_and_year, lambda {|m,y|  # or just year
-    if m.nil? || m.zero?
-      d = self.str2date("1/1/#{y}")
-      where(:date => d.beginning_of_year..d.end_of_year)
-    else
-      y = Date.today.year if (y.nil? || y.zero?)
-      d = self.str2date("#{m}/1/#{y}")
-      where(:date => d.beginning_of_month..d.end_of_month)
+    unless m.nil? && y.nil?
+      if m.nil? || m.zero?
+        d = self.str2date("1/1/#{y}")
+        where(:date => d.beginning_of_year..d.end_of_year)
+      else
+        y = Date.today.year if (y.nil? || y.zero?)
+        d = self.str2date("#{m}/1/#{y}")
+        where(:date => d.beginning_of_month..d.end_of_month)
+      end
     end
   }
 

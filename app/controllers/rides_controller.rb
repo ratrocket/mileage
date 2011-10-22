@@ -2,26 +2,25 @@ class RidesController < ApplicationController
   before_filter :login_required, :set_user
 
   def index
-    if params[:filter] && params[:filter].values.map(&:empty?).uniq.include?(false)
+    f = Class.new do; attr_accessor :bike, :year, :month; end
+    @filter = f.new
 
-      f = Class.new do; attr_accessor :bike, :year, :month; end
-      @filter = f.new
+    year, month, bike =
+      if params[:filter] && params[:filter].values.map(&:empty?).uniq.include?(false)
+        [@filter.year = params[:filter][:year].to_i,
+         @filter.month = params[:filter][:month].to_i,
+         @filter.bike = params[:filter][:bike]]
+      else
+        Array.new(3)  # [nil, nil, nil]
+      end
 
-      year = @filter.year = params[:filter][:year].to_i
-      month = @filter.month = params[:filter][:month].to_i
-      bike = @filter.bike = params[:filter][:bike]
+    @rides = @user.rides.reals.bike(bike).month_and_year(month, year).sort_by(&:date)
+    @services = @user.rides.reals.service.bike(bike).month_and_year(month, year).sort_by(&:date)
+    @rides_only = @rides - @services
 
-      @rides = @user.rides.reals.bike(bike).month_and_year(month, year).sort_by(&:date)
-      @services = @user.rides.reals.service.bike(bike).month_and_year(month, year).sort_by(&:date)
-      @rides_only = @rides - @services
-
-      # these could perhaps be simpler?
-      @rides_by_bike = @rides_only.map(&:bike).uniq.map {|b| [b.name, @rides_only.select {|r| r.bike_id == b.id}.size, @rides_only.select {|r| r.bike_id == b.id}.map(&:miles).sum]}
-      @services_by_bike = @services.map(&:bike).uniq.map {|b| [b.name, @services.select {|r| r.bike_id == b.id}.size]}
-    else
-      @rides = @user.rides.reals.sort_by(&:date)
-      @services = @user.rides.reals.service.sort_by(&:date)
-    end
+    # these could perhaps be simpler?
+    @rides_by_bike = @rides_only.map(&:bike).uniq.map {|b| [b.name, @rides_only.select {|r| r.bike_id == b.id}.size, @rides_only.select {|r| r.bike_id == b.id}.map(&:miles).sum]}
+    @services_by_bike = @services.map(&:bike).uniq.map {|b| [b.name, @services.select {|r| r.bike_id == b.id}.size]}
   end
 
   def show
