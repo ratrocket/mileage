@@ -106,3 +106,6 @@ FEATURE TODO:
   etc.
 * Markdown (or something) for ride descriptions (& probably other more)
   (maybe rdiscount: https://github.com/rtomayko/rdiscount)
+* When filtering rides for a certain month, list # of days in month with
+  riding vs. number of days w/o riding.  To get # of days in a month:
+  Date.civil(2012, 2, -1).day, or Date.civil(year_num, month_num, -1).day
