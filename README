@@ -24,6 +24,14 @@ psql -U mileage mileage_development
 for rake:
 REMEMBER to use 'bundle exec' (eg, bundle exec rake db:migrate)
 
+Pass an environment name as an argument to console:
+  rails console production
+
+Go to the command line of your database directly:
+  rails dbconsole (or: rails dbconsole production)
+
+commute: http://g.co/maps/tr3vr
+
 DONE:
 
 * convert to postgres (done?)
