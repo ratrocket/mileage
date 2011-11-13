@@ -49,4 +49,11 @@ Services: <%= @services.size %>
 (<%= @services_by_bike.map {|s| "#{s.first}: #{s.last}"}.join(", ") %>)
 </p>
 
+<%- if @days_ridden && @total_days -%>
+<p>
+<%= @days_ridden %> days ridden out of <%= @total_days %>
+(<%= nice_number(1.0 * @days_ridden / @total_days * 100) %>% of days)
+</p>
+<%- end -%>
+
 <p><%= link_to "New Ride", new_ride_path %></p>
