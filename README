@@ -117,3 +117,5 @@ FEATURE TODO:
   etc.
 * Markdown (or something) for ride descriptions (& probably other more)
   (maybe rdiscount: https://github.com/rtomayko/rdiscount)
+* It'd be cool to have month-by-month stats -- miles/month, percent of
+  days ridden per month, what bikes got ridden...
