@@ -46,5 +46,25 @@
     </pre>
     </p>
 
+    <p>
+    Arrays to hashes, etc.
+    <pre>
+    attrs = %w[val1 val2 val3]
+    ["val1", "val2", "val3"]
+
+    values = ["one", "two", "three"]
+    ["one", "two", "three"]
+
+    attrs.zip values
+    [["val1", "one"], ["val2", "two"], ["val3", "three"]]
+
+    Hash[*(attrs.zip(values)).flatten]
+    {"val1": "one", "val2": "two", "val3": "three"}
+    </pre>
+    <a
+      href="http://stackoverflow.com/questions/39567/what-is-the-best-way-to-convert-an-array-to-a-hash-in-ruby">stackoverflow
+      link</a>
+    </p>
+
   </body>
 </html>
