@@ -14,6 +14,7 @@ group :development, :test do
 
   # I don't think this is necessary in production?
   gem 'heroku'
+  gem 'taps'  # req. by above
 end
 
 # Use unicorn as the web server
