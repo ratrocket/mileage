@@ -11,6 +11,9 @@ gem 'nifty-generators', :group => :development
 
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
+
+  # I don't think this is necessary in production?
+  gem 'heroku'
 end
 
 # Use unicorn as the web server
