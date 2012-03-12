@@ -52,10 +52,13 @@ class RidesController < ApplicationController
     unless request.post?
       @ride = Ride.new
     else
+      # oy vey, what is this?
       @ride = Ride.find(params[:template]).dup
       @ride.template = nil
       @ride.date = Date.today
     end
+    # TODO almost certainly fails when no rides exist
+    @date_guess = @user.rides.map(&:date).sort.last.ago -1.day
     @templates = @user.rides.templates
   end
 
