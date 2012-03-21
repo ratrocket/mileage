@@ -77,6 +77,8 @@ DONE:
 * When filtering rides for a certain month, list # of days in month with
   riding vs. number of days w/o riding.  To get # of days in a month:
   Date.civil(2012, 2, -1).day, or Date.civil(year_num, month_num, -1).day
+* It'd be cool to have month-by-month stats -- miles/month, percent of
+  days ridden per month, what bikes got ridden...
 
 TODO:
 
@@ -117,5 +119,3 @@ FEATURE TODO:
   etc.
 * Markdown (or something) for ride descriptions (& probably other more)
   (maybe rdiscount: https://github.com/rtomayko/rdiscount)
-* It'd be cool to have month-by-month stats -- miles/month, percent of
-  days ridden per month, what bikes got ridden...
